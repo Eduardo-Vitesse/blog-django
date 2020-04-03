@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div class="blog-post container">
+    <h2 class="blog-post-title">{{ post.titulo }}</h2>
+    <p class="blog-post-meta">{{ post.data|date:'d, M Y' }}</p>
+
+<p>{{ post.conteudo|safe }}</p>
+<br><br>
+<h3>{{ post.autor }}</h3>
+
+</div>
+
+{% endblock %}

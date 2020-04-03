@@ -1,0 +1,54 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+  <body>
+    <div class="container">
+  <header class="blog-header py-3">
+    <div class="row flex-nowrap justify-content-between align-items-center">
+      <div class="col-4 pt-1">
+        <a class="text-muted" href="#">Inscrever-se</a>
+      </div>
+      <div class="col-4 text-center">
+        <a class="blog-header-logo text-dark" href="#">Eduardo Vitesse Blog</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="nav-scroller py-1 mb-2">
+    <nav class="nav d-flex justify-content-between">
+      <a class="p-2 text-muted" href="#">World</a>
+      <a class="p-2 text-muted" href="#">Technology</a>
+      <a class="p-2 text-muted" href="#">Design</a>
+      <a class="p-2 text-muted" href="#">Business</a>
+      <a class="p-2 text-muted" href="#">Science</a>
+    </nav>
+  </div>
+
+  <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+    <div class="col-md-6 px-0">
+      <h1 class="display-4 font-italic">Desenvolvimento e tecnologia para todos</h1>
+      <p class="lead my-3">Vivemos em uma nova era, onde a tecnologia e o homem, ambos integrantes de uma sociedade que progride rumo ao desenvolvimento</p>
+      <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Meu GitHub</a></p>
+    </div>
+  </div>
+
+  <div class="row mb-2">
+    {% for post in posts %}
+    <div class="col-md-6">
+      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary">{{ post.autor }}</strong>
+          <h3 class="mb-0">{{ post.titulo }}</h3>
+          <div class="mb-1 text-muted">{{ post.data|date:'d, M Y' }}</div>
+          <p class="card-text mb-auto">{{ post.resumo }}</p>
+          <a href="/post/{{ post.pk }}" class="stretched-link">Continuar Lendo</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+{% endblock %}
